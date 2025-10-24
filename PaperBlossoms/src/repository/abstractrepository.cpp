@@ -15,7 +15,7 @@
 
 QString AbstractRepository::getLastExecutedQuery(const QSqlQuery &query) {
     QString str = query.executedQuery();
-    QMapIterator <QString, QVariant> it(query.boundValues());
+    QMapIterator<QString, QVariant> it(query.boundValues());
     while (it.hasNext()) {
         it.next();
         str.replace(it.key(), it.value().toString());
