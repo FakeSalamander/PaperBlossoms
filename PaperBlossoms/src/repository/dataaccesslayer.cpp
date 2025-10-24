@@ -223,7 +223,7 @@ bool DataAccessLayer::tableToCsv(const QString filepath, const QString tablename
         return false;
     }
     QTextStream outStream(&csvFile);
-    outStream.setCodec("UTF-8");
+    outStream.setEncoding(QStringConverter::Utf8);
     while (query.next()) {
         const QSqlRecord record = query.record();
         for (int i = 0, recCount = record.count(); i < recCount; ++i) {
