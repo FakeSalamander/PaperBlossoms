@@ -587,7 +587,7 @@ QString RenderDialog::generateHtml() {
 
         QTextStream stream(tempFile);
 
-        stream<< html << endl;
+        stream<< html << std::endl;
 
         tempFile->close();
     }
