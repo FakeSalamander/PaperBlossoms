@@ -29,7 +29,13 @@
 #include <QFile>
 #include <QSettings>
 #include <QStandardPaths>
-#include <QTextCodec>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    #include <QtCore/QTextCodec>
+#else
+    #include <QtCore5Compat/QTextCodec>
+#endif
+
 
 int main(int argc, char *argv[])
 {
