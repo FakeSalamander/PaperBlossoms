@@ -611,8 +611,8 @@ void RenderDialog::on_printButton_clicked()
     printer.setPageMargins(QMarginsF(0.4,0.4,0.4,0.4),QPageLayout::Inch);
     QPrintDialog *dialog = new QPrintDialog(&printer);
     if ( dialog->exec() == QDialog::Accepted)
-            //ui->webView->print(&printer);
-            ui->webView->page()->print(&printer, [=](bool){});
+            ui->webView->print(&printer);
+            //ui->webView->page()->print(&printer, [=](bool){});
 }
 
 void RenderDialog::on_cancelButton_clicked()
