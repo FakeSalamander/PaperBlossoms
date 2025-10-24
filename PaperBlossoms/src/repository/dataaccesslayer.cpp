@@ -254,7 +254,7 @@ bool DataAccessLayer::queryToCsv(const QString querystr, QString filename) //DAN
         return false;
     }
     QTextStream outStream(&csvFile);
-    outStream.setCodec("UTF-8");
+    outStream.setEncoding(QStringConverter::Utf8);
     while (query.next()) {
         const QSqlRecord record = query.record();
         for (int i = 0, recCount = record.count(); i < recCount; ++i) {
@@ -361,7 +361,7 @@ bool DataAccessLayer::importCSV(const QString filepath, const QString tablename,
             qDebug() << "Could not delete " + tablename;
         }
         QTextStream ts(&f);
-        ts.setCodec("UTF-8");
+        ts.setEncoding(QStringConverter::Utf8);
 
         while (!ts.atEnd()) {
 
