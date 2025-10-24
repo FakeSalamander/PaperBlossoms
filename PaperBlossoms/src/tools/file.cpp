@@ -5,7 +5,7 @@
 #include <QMessageBox>
 #include <QSettings>
 #include <QFile>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFileInfo>
 #include <QDebug>
 #include <QStandardPaths>
@@ -58,7 +58,7 @@ void MainWindow::on_actionSave_As_triggered() {
     QString cname = this->curCharacter.family + " " + curCharacter.name;
     if (cname.isEmpty())
         cname = "untitled";
-    cname.remove(QRegExp("[^a-zA-Z\\d\\s]"));
+    cname.remove(QRegularExpression("[^a-zA-Z\\d\\s]"));
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File As..."), filepath + "/" + cname + ".pbc",
                                                     tr("Paper Blossoms Character Profile (*.pbc)"));
     if (fileName.isEmpty())
