@@ -9,6 +9,13 @@
 #include <QSqlRecord>
 #include <QBuffer>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    #include <QtCore/QTextCodec>
+#else
+    #include <QtCore5Compat/QTextCodec>
+#endif
+
+
 void MainWindow::on_actionExport_User_Tables_triggered() {
     qDebug() << QString("Homepath = ") + QDir::homePath();
     const QString fileName = QFileDialog::getExistingDirectory(this, tr("Choose an export directory..."),
