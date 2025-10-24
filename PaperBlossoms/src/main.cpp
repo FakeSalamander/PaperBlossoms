@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     defaultLocaleDB = defaultLocaleUI = QLocale::system().name();
     defaultLocaleDB.truncate(defaultLocaleDB.lastIndexOf('_'));
     defaultLocaleUI.truncate(defaultLocaleUI.lastIndexOf('_'));
-    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/settings.ini";
+    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/settings.ini";
     qDebug() << "Settings file: " << settingfile;
     QSettings settings(settingfile, QSettings::IniFormat);
 

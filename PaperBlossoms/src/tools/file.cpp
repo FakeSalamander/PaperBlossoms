@@ -42,7 +42,7 @@ void MainWindow::on_actionNew_triggered() {
 }
 
 void MainWindow::on_actionSave_As_triggered() {
-    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/settings.ini";
+    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/settings.ini";
     QSettings settings(settingfile, QSettings::IniFormat);
     //QSettings settings;
     QString filepath = QDir::homePath();
@@ -124,7 +124,7 @@ void MainWindow::on_actionSave_As_triggered() {
 }
 
 void MainWindow::on_actionOpen_triggered() {
-    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/settings.ini";
+    QString settingfile = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/settings.ini";
     QSettings settings(settingfile, QSettings::IniFormat);
     //QSettings settings;
     QString filepath = QDir::homePath();

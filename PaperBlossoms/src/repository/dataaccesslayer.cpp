@@ -36,7 +36,7 @@
 #include <QSqlTableModel>
 
 DataAccessLayer::DataAccessLayer(QString locale) {
-    QString targetpath = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QString targetpath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     if (!QDir(targetpath).exists()) {
         QDir().mkdir(targetpath);
     }
