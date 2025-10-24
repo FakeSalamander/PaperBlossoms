@@ -35,6 +35,13 @@
 #include <QDir>
 #include <QSqlTableModel>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    #include <QtCore/QTextCodec>
+#else
+    #include <QtCore5Compat/QTextCodec>
+#endif
+
+
 DataAccessLayer::DataAccessLayer(QString locale) {
     QString targetpath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     if (!QDir(targetpath).exists()) {
