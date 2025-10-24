@@ -307,7 +307,7 @@ void MainWindow::on_actionExport_to_XML_triggered() {
 
         //now, output the document to the file
         QTextStream stream(&file);
-        stream.setCodec("UTF-8");
+        stream.setEncoding(QStringConverter::Utf8);
         stream << document.toString();
         file.close();
     }
