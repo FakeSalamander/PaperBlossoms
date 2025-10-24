@@ -11,15 +11,21 @@
 #include <QSqlRecord>
 #include <QDir>
 #include <QSqlTableModel>
-#include <QMapIterator>
 
 QString AbstractRepository::getLastExecutedQuery(const QSqlQuery &query) {
     QString str = query.executedQuery();
-    QMapIterator<QString, QVariant> it(query.boundValues());
-    while (it.hasNext()) {
-        it.next();
-        str.replace(it.key(), it.value().toString());
+    //QMapIterator<QString, QVariant> it(query.boundValues());
+    QVariantList keys(query.boundValueNames());
+    QStringList it(query.boundValues());
+    //while (it.hasNext()) {
+    //    it.next();
+    //    str.replace(it.key(), it.value().toString());
+    //}
+    for (qsizetype i = 0; i < it.size(); ++i) {
+        str.replace(keys.at(i), it.at(i).toString());
     }
+    QVariantList it(query.boundValues());
+    
     return str;
 }
 
