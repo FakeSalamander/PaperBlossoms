@@ -33,6 +33,7 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QWebEngineSettings>
+#include <QTextStream>
 
 RenderDialog::RenderDialog(PBOutputData* charData, QWidget *parent) :
     QDialog(parent),
