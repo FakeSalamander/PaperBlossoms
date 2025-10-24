@@ -11,6 +11,7 @@
 #include <QSqlRecord>
 #include <QDir>
 #include <QSqlTableModel>
+#include <QMapIterator>
 
 QString AbstractRepository::getLastExecutedQuery(const QSqlQuery &query) {
     QString str = query.executedQuery();
